@@ -1,62 +1,80 @@
-ゼロから作る Deep Learning ❷
+ゼロから作る Deep Learning ❷ in Ruby
 ==========================
 
-本リポジトリは、オライリー・ジャパン発行書籍『[ゼロから作る Deep Learning ❷](https://www.oreilly.co.jp/books/9784873118369/)』のサポートサイトです。本書籍で使用するソースコードがまとめられています。
+本リポジトリは、オライリー・ジャパン発行書籍『[ゼロから作る Deep Learning ❷](https://www.oreilly.co.jp/books/9784873118369/)』のソースコードをRuby（PyCall）に移植しようというプロジェクトです。
 
+## 進捗
 
-[![book](https://raw.githubusercontent.com/oreilly-japan/deep-learning-from-scratch-2/images/deep-learning-from-scratch-2.png)](https://www.oreilly.co.jp/books/9784873118369/)
+- [ ] ch01
+  - [x] forward_net
+  - [ ] show_spiral_dataset
+  - [ ] train
+  - [ ] train_custom_loop
+  - [ ] two_layer_net
+- [ ] ch02
+  - [ ] count_method_big
+  - [ ] count_method_small
+  - [ ] most_similar
+  - [ ] ppmi
+  - [ ] show_ptb
+  - [ ] similarity
+- [ ] ch03
+  - [ ] cbow_predict
+  - [ ] simple_cbow
+  - [ ] simple_skip_gram
+  - [ ] train
+- [ ] ch04
+  - [ ] cbow
+  - [ ] eval
+  - [ ] negative_sampling_layer
+  - [ ] skip_gram
+  - [ ] train
+- [ ] ch05
+  - [ ] simple_rnnlm
+  - [ ] train
+  - [ ] train_custom_loop
+- [ ] ch06
+  - [ ] better_rnnlm
+  - [ ] clip_grads
+  - [ ] eval
+  - [ ] rnn_gradient_graph
+  - [ ] rnnlm
+  - [ ] train_better_rnnlm
+  - [ ] train_rnnlm
+- [ ] ch07
+  - [ ] generate_better_text
+  - [ ] generate_text
+  - [ ] peeky_seq2seq
+  - [ ] rnnlm_gen
+  - [ ] seq2seq
+  - [ ] show_addition_dataset
+  - [ ] train_seq2seq
+- [ ] ch08
+  - [ ] attention_layer
+  - [ ] attention_seq2seq
+  - [ ] train
+  - [ ] visualize_attention
 
+## オリジナルとの差異
 
-## ファイル構成
-
-|フォルダ名 |説明                         |
-|:--        |:--                          |
-|ch01       |1章で使用するソースコード    |
-|ch02       |2章で使用するソースコード    |
-|...        |...                          |
-|ch08       |8章で使用するソースコード    |
-|common     |共通で使用するソースコード   |
-|dataset    |データセット用のソースコード | 
-
-学習済みの重みファイル（6章、7章で使用）は下記URLから入手可能です。
-<https://www.oreilly.co.jp/pub/9784873118369/BetterRnnlm.pkl>
-
-ソースコードの解説は、本書籍をご覧ください。
-
-
-## Pythonと外部ライブラリ
-ソースコードを実行するには、下記のソフトウェアが必要です。
-
-* Python 3.x（バージョン3系）
-* NumPy
-* Matplotlib
- 
-また、オプションとして下記のライブラリを使用します。
-
-* SciPy（オプション）
-* CuPy（オプション）
+- 大文字1字の変数名の代わりに小文字を使用
 
 ## 実行方法
 
-各章のフォルダへ移動して、Pythonコマンドを実行します。
-
 ```
-$ cd ch01
-$ python train.py
+$ docker build -t tnantoka/deep-learning-from-scratch-2 .
 
-$ cd ../ch05
-$ python train_custom_loop.py
+$ docker run -it tnantoka/deep-learning-from-scratch-2 bundle exec ruby ch01/forward_net.rb
 ```
 
-## ライセンス
+## 開発
 
-本リポジトリのソースコードは[MITライセンス](http://www.opensource.org/licenses/MIT)です。
-商用・非商用問わず、自由にご利用ください。
+```
+$ vim ch01/forward_net.rb
 
-## 正誤表
+$ docker run -it -v $PWD:/app tnantoka/deep-learning-from-scratch-2 bundle exec ruby ch01/forward_net.rb
+```
 
-本書の正誤情報は以下のページで公開しています。
+## Heroku
 
-https://github.com/oreilly-japan/deep-learning-from-scratch-2/wiki/errata
-
-本ページに掲載されていない誤植など間違いを見つけた方は、[japan＠oreilly.co.jp](<mailto:japan＠oreilly.co.jp>)までお知らせください。
+TODO
